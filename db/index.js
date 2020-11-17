@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize');
 const { STRING, UUID, UUIDV4, DATE } = Sequelize;
-const conn = new Sequelize('postgres://localhost/reggeaton_sequelize');
+const conn = new Sequelize(
+  process.env.DATABASE_URL || 'postgres://localhost/reggeaton_sequelize'
+);
 
 const Artists = conn.define('artist', {
   id: {
